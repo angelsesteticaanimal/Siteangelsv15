@@ -1,74 +1,45 @@
-document.documentElement.classList.add('js');
-
+(() => {
+  "use strict";
+  document.documentElement.classList.remove("no-js");
+  document.documentElement.classList.add("js");
   const menuBtn = document.querySelector(".mobile-toggle");
   const menu = document.querySelector(".menu");
-
   if (menuBtn && menu) {
     menuBtn.addEventListener("click", () => {
-      menu.classList.toggle("open");
+      const opened = menu.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", String(opened));
+      menuBtn.textContent = opened ? "✕" : "☰";
     });
-
-    document.querySelectorAll(".menu a").forEach((link) => {
-      link.addEventListener("click", () => {
-        menu.classList.remove("open");
-      });
-    });
+    document.querySelectorAll(".menu a").forEach(link => link.addEventListener("click", () => {
+      menu.classList.remove("open");
+      menuBtn.setAttribute("aria-expanded", "false");
+      menuBtn.textContent = "☰";
+    }));
   }
-
-  // Mostra o conteúdo imediatamente para evitar páginas em branco
-  const elementos = document.querySelectorAll(".reveal");
-
-  elementos.forEach((elemento) => {
-    elemento.classList.add("visible");
-  });
-
-  // Mantém a animação somente quando o navegador oferecer suporte
+  const revealItems = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window) {
-    const observador = new IntersectionObserver(
-      (entradas) => {
-        entradas.forEach((entrada) => {
-          if (entrada.isIntersecting) {
-            entrada.target.classList.add("visible");
-            observador.unobserve(entrada.target);
-          }
-        });
-      },
-      {
-        threshold: 0.08,
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: "0px 0px -30px 0px" });
+    revealItems.forEach(item => observer.observe(item));
+    window.setTimeout(() => revealItems.forEach(item => item.classList.add("visible")), 1200);
+  } else {
+    revealItems.forEach(item => item.classList.add("visible"));
+  }
+  const year = document.getElementById("year");
+  if (year) year.textContent = new Date().getFullYear();
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", async () => {
+      try {
+        await navigator.serviceWorker.register("./service-worker.js?v=16", { scope: "./", updateViaCache: "none" });
+      } catch (error) {
+        console.warn("Service worker não registrado:", error);
       }
-    );
-
-    elementos.forEach((elemento) => {
-      observador.observe(elemento);
     });
   }
-
-  const year = document.getElementById("year");
-
-  if (year) {
-    year.textContent = new Date().getFullYear();
-  }
-});
-
-// Remove versões antigas armazenadas pelo service worker
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", async () => {
-    try {
-      const registros = await navigator.serviceWorker.getRegistrations();
-
-      for (const registro of registros) {
-        await registro.unregister();
-      }
-
-      if ("caches" in window) {
-        const nomesDosCaches = await caches.keys();
-
-        await Promise.all(
-          nomesDosCaches.map((nome) => caches.delete(nome))
-        );
-      }
-    } catch (erro) {
-      console.log("Limpeza de cache não concluída:", erro);
-    }
-  });
-}
+})();

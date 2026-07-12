@@ -1,0 +1,19 @@
+SUBSTITUIÇÃO NO GITHUB
+
+1. Substitua na raiz do repositório:
+   index.html
+   styles.css
+   app.js
+   manifest.webmanifest
+   service-worker.js
+
+2. Substitua também a pasta assets inteira.
+
+3. Confirme que todos os nomes estão em letras minúsculas e exatamente iguais.
+
+4. Depois abra:
+   https://aanimal.com.br/?v=16
+
+5. Se ainda aparecer versão antiga, teste em aba anônima ou limpe os dados do site.
+
+A correção deixa todo conteúdo visível por padrão. Assim, mesmo se o JavaScript falhar, a página não fica branca.
