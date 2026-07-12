@@ -1,4 +1,5 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.documentElement.classList.add('js');
+
   const menuBtn = document.querySelector(".mobile-toggle");
   const menu = document.querySelector(".menu");
 
