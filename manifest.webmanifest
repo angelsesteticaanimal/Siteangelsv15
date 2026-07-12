@@ -1,0 +1,20 @@
+{
+  "name": "Angels Estética Animal",
+  "short_name": "Angels",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#fffaf6",
+  "theme_color": "#d96f91",
+  "icons": [
+    {
+      "src": "assets/logo.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "assets/logo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}

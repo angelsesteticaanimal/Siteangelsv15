@@ -1,0 +1,89 @@
+
+:root{
+  --rose:#d96f91; --rose-dark:#a84968; --gold:#c7a45b; --cream:#fffaf6;
+  --ink:#352a2f; --muted:#796d72; --line:rgba(92,66,75,.14);
+  --shadow:0 22px 70px rgba(79,51,60,.13); --radius:30px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink);background:var(--cream)}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+.container{width:min(1180px,calc(100% - 32px));margin:auto}
+.nav{position:fixed;inset:0 0 auto;z-index:50;background:rgba(255,250,246,.82);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.nav-inner{height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:900}
+.brand img{width:48px;height:48px;border-radius:16px;object-fit:cover;border:1px solid rgba(199,164,91,.35)}
+.brand small{display:block;font-weight:700;color:var(--muted);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.menu{display:flex;gap:24px;align-items:center;font-weight:800;font-size:14px}
+.menu a:hover{color:var(--rose-dark)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:13px 20px;font-weight:900;border:1px solid transparent;transition:.25s}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:linear-gradient(135deg,var(--rose),var(--rose-dark));color:white;box-shadow:0 14px 34px rgba(217,111,145,.28)}
+.btn-light{background:white;border-color:var(--line)}
+.hero{min-height:100vh;padding:118px 0 64px;display:grid;align-items:center;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,250,246,.98) 0%,rgba(255,250,246,.9) 42%,rgba(255,250,246,.18) 72%),url("assets/hero-pets.jpg") center/cover no-repeat}
+.hero-content{position:relative;z-index:2;max-width:690px}
+.eyebrow{display:inline-flex;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.78);border:1px solid var(--line);font-weight:900;color:var(--rose-dark);letter-spacing:.08em;text-transform:uppercase;font-size:12px}
+h1{font-family:Georgia,serif;font-size:clamp(50px,7vw,92px);line-height:.98;margin:22px 0;color:#36272d}
+.hero p{font-size:20px;line-height:1.65;color:var(--muted);max-width:620px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.trust{display:flex;gap:24px;flex-wrap:wrap;margin-top:38px;color:var(--muted);font-weight:800}
+.trust span:before{content:"✓";color:var(--gold);margin-right:7px}
+section{padding:92px 0}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:34px}
+.section-head h2{font-family:Georgia,serif;font-size:clamp(36px,5vw,58px);margin:0}
+.section-head p{max-width:580px;color:var(--muted);line-height:1.7}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:rgba(255,255,255,.84);border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
+.service-icon{font-size:38px;margin-bottom:18px}
+.card h3{font-size:22px;margin:0 0 10px}.card p{color:var(--muted);line-height:1.65}
+.premium-band{background:linear-gradient(135deg,#3a2931,#171114);color:white}
+.premium-band .card{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.12);box-shadow:none}
+.premium-band .card p{color:rgba(255,255,255,.72)}
+.diary{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
+.timeline{display:grid;gap:14px}
+.timeline-item{display:grid;grid-template-columns:46px 1fr;gap:14px;padding:16px;border-radius:22px;background:white;border:1px solid var(--line)}
+.timeline-icon{width:46px;height:46px;border-radius:16px;display:grid;place-items:center;background:#fff0f5}
+.gallery{display:grid;grid-template-columns:1.2fr .8fr .8fr;grid-auto-rows:260px;gap:14px}
+.gallery img{width:100%;height:100%;object-fit:cover;border-radius:26px}
+.gallery img:first-child{grid-row:span 2}
+.testimonial{font-size:18px;line-height:1.7}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.contact-panel{background:white;border:1px solid var(--line);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+.contact-list{display:grid;gap:16px}
+.contact-row{display:flex;gap:12px;align-items:flex-start}
+.whatsapp{position:fixed;right:18px;bottom:18px;z-index:40;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:#25D366;color:white;font-size:26px;box-shadow:0 16px 34px rgba(37,211,102,.35)}
+footer{padding:42px 0;background:#24191e;color:white}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:24px}
+.footer-grid p,.footer-grid a{color:rgba(255,255,255,.68)}
+.reveal{opacity:0;transform:translateY(24px);transition:.7s}
+.reveal.visible{opacity:1;transform:none}
+.mobile-toggle{display:none}
+@media(max-width:900px){
+  .menu{display:none;position:absolute;top:78px;left:16px;right:16px;background:white;padding:18px;border-radius:22px;box-shadow:var(--shadow);flex-direction:column;align-items:stretch}
+  .menu.open{display:flex}.mobile-toggle{display:block;border:0;background:white;border-radius:12px;padding:10px;font-size:20px}
+  .hero:before{background:linear-gradient(rgba(255,250,246,.9),rgba(255,250,246,.88)),url("assets/hero-pets.jpg") center/cover}
+  .grid,.contact,.diary,.footer-grid{grid-template-columns:1fr}
+  .gallery{grid-template-columns:1fr 1fr;grid-auto-rows:210px}.gallery img:first-child{grid-row:auto;grid-column:span 2}
+  .section-head{align-items:start;flex-direction:column}
+}
+@media(max-width:580px){
+  .hero{padding-top:110px}.hero p{font-size:17px}.actions .btn{width:100%}
+  section{padding:68px 0}.gallery{grid-template-columns:1fr}.gallery img:first-child{grid-column:auto}
+}
+
+/* V15 */
+.quick-status{padding:0 0 36px;margin-top:-30px;position:relative;z-index:5}
+.status-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.status-grid>div{background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:var(--shadow)}
+.status-grid span{font-size:24px;display:block;margin-bottom:8px}
+.status-grid strong{display:block;margin-bottom:5px}
+.status-grid small{color:var(--muted);line-height:1.45}
+.social-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.social-card{display:flex;gap:14px;align-items:center;background:white;border:1px solid var(--line);border-radius:26px;padding:22px;box-shadow:var(--shadow);transition:.25s}
+.social-card:hover{transform:translateY(-3px)}
+.social-icon{width:54px;height:54px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(135deg,#fff0f6,#fff6e7);font-size:28px;color:var(--rose-dark)}
+.social-card p{margin:6px 0 0;color:var(--muted);line-height:1.5}
+@media(max-width:900px){.status-grid{grid-template-columns:1fr 1fr}.social-grid{grid-template-columns:1fr}}
+@media(max-width:560px){.status-grid{grid-template-columns:1fr}}
