@@ -17,6 +17,42 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <link rel="stylesheet" href="styles.css">
+<style>
+.reveal,
+.reveal.visible {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
+
+.hero {
+  min-height: 720px;
+  background:
+    linear-gradient(rgba(40, 20, 45, 0.72), rgba(40, 20, 45, 0.72)),
+    url("assets/hero-pets.jpg") center/cover no-repeat;
+}
+
+.hero-content {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1,
+.hero p,
+.hero .eyebrow,
+.hero .trust {
+  color: white !important;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 650px;
+  }
+}
+</style>
 </head>
 <body>
 <header class="nav">
