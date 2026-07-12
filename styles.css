@@ -87,3 +87,9 @@ footer{padding:42px 0;background:#24191e;color:white}
 .social-card p{margin:6px 0 0;color:var(--muted);line-height:1.5}
 @media(max-width:900px){.status-grid{grid-template-columns:1fr 1fr}.social-grid{grid-template-columns:1fr}}
 @media(max-width:560px){.status-grid{grid-template-columns:1fr}}
+
+/* CORREÇÃO: não deixar o site invisível caso o JavaScript falhe */
+.reveal{
+  opacity:1 !important;
+  transform:none !important;
+}
