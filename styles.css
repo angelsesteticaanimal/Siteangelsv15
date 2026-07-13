@@ -13,3 +13,155 @@ footer{padding:42px 0;background:#24191e;color:white}.footer-grid{display:grid;g
 .reveal{opacity:1;visibility:visible;transform:none;transition:opacity .7s ease,transform .7s ease}html.js .reveal{opacity:0;transform:translateY(24px)}html.js .reveal.visible{opacity:1;transform:none}
 @media(max-width:900px){.menu{display:none;position:absolute;top:78px;left:16px;right:16px;background:white;padding:18px;border-radius:22px;box-shadow:var(--shadow);flex-direction:column;align-items:stretch}.menu.open{display:flex}.mobile-toggle{display:block;border:0;background:white;border-radius:12px;padding:10px 14px;font-size:24px}.hero{background:linear-gradient(rgba(255,250,246,.91),rgba(255,250,246,.89)),url("assets/hero-pets.svg") center/cover no-repeat}.grid,.contact,.diary,.footer-grid{grid-template-columns:1fr}.gallery{grid-template-columns:1fr 1fr;grid-auto-rows:210px}.gallery img:first-child{grid-row:auto;grid-column:span 2}.section-head{align-items:start;flex-direction:column}.status-grid{grid-template-columns:1fr 1fr}.social-grid{grid-template-columns:1fr}}
 @media(max-width:580px){.nav-inner{min-height:82px}.brand{min-width:0;gap:10px}.brand img{width:50px;height:50px;flex:0 0 auto}.brand span{font-size:17px;line-height:1.1}.brand small{font-size:9px;margin-top:5px}.hero{padding-top:118px;min-height:760px}.hero p{font-size:17px}.actions .btn{width:100%}section{padding:68px 0}.gallery{grid-template-columns:1fr}.gallery img:first-child{grid-column:auto}.status-grid{grid-template-columns:1fr}h1{font-size:clamp(46px,16vw,70px)}.contact-title{font-size:36px}}
+
+/* CORREÇÃO MOBILE — ENQUADRAMENTO */
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.hero {
+  width: 100%;
+  min-height: auto;
+  overflow: hidden;
+  padding: 56px 0 70px;
+}
+
+.hero .container,
+.hero-content {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  max-width: 850px;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
+
+.actions {
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+
+  .nav-inner {
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+
+  .brand {
+    min-width: 0;
+    flex: 1;
+  }
+
+  .brand img {
+    width: 72px;
+    height: 72px;
+    flex-shrink: 0;
+  }
+
+  .brand span {
+    min-width: 0;
+    font-size: 21px;
+    line-height: 1.15;
+  }
+
+  .brand small {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+  }
+
+  .mobile-toggle {
+    width: 62px;
+    height: 62px;
+    flex-shrink: 0;
+  }
+
+  .hero {
+    min-height: auto !important;
+    padding: 58px 0 72px;
+    background-position: center;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero h1 {
+    width: 100%;
+    max-width: 100%;
+    margin: 28px 0 24px;
+    font-size: clamp(48px, 14vw, 74px) !important;
+    line-height: 0.96;
+    letter-spacing: -2px;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  .hero p {
+    width: 100%;
+    max-width: 100%;
+    font-size: 20px;
+    line-height: 1.55;
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 14px;
+  }
+
+  .actions .btn {
+    width: 100%;
+    max-width: 100%;
+    min-height: 58px;
+    padding: 16px 20px;
+    text-align: center;
+    justify-content: center;
+    white-space: normal;
+  }
+
+  .trust {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  section {
+    max-width: 100%;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 390px) {
+  .hero h1 {
+    font-size: 46px !important;
+    letter-spacing: -1.5px;
+  }
+
+  .brand span {
+    font-size: 18px;
+  }
+
+  .brand img {
+    width: 62px;
+    height: 62px;
+  }
+                     }
